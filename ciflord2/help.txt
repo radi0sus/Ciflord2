@@ -509,7 +509,7 @@ the result is:
 
 > Information about the symmetry transformations are already included in figure captions.`%SYM_OPS%` and `%SYM_OPS_SORTED%` instructions must not be given after `%BONDLENGTHS_AND_ANGLES_FIGURE%` and `%BONDLENGTHS_AND_ANGLES_FIGURE_SORTED%`.
 
-> All collection of relevant tables and figure captions for all output formats is provided in the `default.profile`.
+> All collection of relevant tables and figure captions for all output formats is provided in the `default.clprofile`.
 
 ### 5.2.1 INSTRUCTIONs
 
