@@ -1,0 +1,293 @@
+// This is a line comment. Everything in this line will not be interpreted as instruction. So % written here will be ignored.
+//
+// Intended for the use with CIF created by SHELX programs (starting from 2013). Probably fails with other programs. Minor support for SHELX-97.
+//
+// _cif_item_that_should_be_changed %INSTRUCTION %new_value1 %new_value2 ... % Important! Don't forget the closing '%' at the end of the instruction line!
+//
+// CONST, INSERT_FROM_CIF, INSERT_FROM_FILE, READ, IF, CASE, ASK instructions.
+// Case sensitive!
+//
+// This file is interpreted line by line and can only handle line based CIF items with their respective values written in one line.
+// CIF items (in the understanding of this program) start with "_" except for "data_".
+// Try different things and it will probably fail.
+//
+// Empty lines produce errors, always use //.
+//
+//----------------------------------------------------------------------------------------------------------------------	
+**begin section CIF
+_cell_measurement_reflns_used     %INSERT_FROM_CIF %_diffrn_reflns_number%								 //take value from a different CIF item in the same CIF
+_cell_measurement_theta_min       %INSERT_FROM_CIF %_diffrn_reflns_theta_min%       					 //take care of '%' 
+_cell_measurement_theta_max       %INSERT_FROM_CIF %_diffrn_reflns_theta_max%	
+//----------------------------------------------------------------------------------------------------------------------		
+_exptl_crystal_description        %CONST %block%                                      					 //ask for it, 2nd value is default value
+_exptl_crystal_colour             %ASK %colorless%
+//----------------------------------------------------------------------------------------------------------------------	
+//_exptl_absorpt_correction_T_min   %INSERT_FROM_FILE %.lxr %34 %29 %6%                					 //insert from external file, same filename as CIF but different file extension, line number (line 1 is 0), column number, number of chars to collect
+_exptl_absorpt_correction_T_min   %SEARCH_IN_FILE %.lxr %Min and max Transmission %0 %29 %6%
+_exptl_absorpt_correction_T_max   %SEARCH_IN_FILE %.lxr %Min and max Transmission %0 %37 %6%			 //different filename, search phrase, +line number from search result, column number, number of chars to collect
+//----------------------------------------------------------------------------------------------------------------------
+_diffrn_source                    %CONST %'fine-focus sealed tube'%	
+_diffrn_measurement_device_type   %CONST %'Stoe IPDS II'%
+_diffrn_measurement_method        %CONST %\w%
+_computing_molecular_graphics     %CONST %'DIAMOND (Brandenburg, 2012)'%
+//----------------------------------------------------------------------------------------------------------------------
+_exptl_absorpt_correction_type    %IF %_exptl_absorpt_correction_T_min %xxx %none %numerical% 
+_exptl_absorpt_process_details    %IF %_exptl_absorpt_correction_T_min %xxx %? %'X-RED (Stoe & Cie, 2015)'%
+// IF the second CIF item is "" or "?" or "..." then the first CIF item is "..." else the first CIF item is "..."
+// Important! The second CIF item must be defined somewhere or READ from the CIF before the IF instruction. 
+//----------------------------------------------------------------------------------------------------------------------                                                         
+_computing_data_collection        %CONST %'X-AREA (Stoe & Cie, 2015)'%									 //constant term, but also useful for IF or CASE instructions
+_computing_cell_refinement        %CONST %'X-AREA (Stoe & Cie, 2015)'%				 					 //constant term, but also useful for IF or CASE instructions
+_computing_data_reduction         %CONST %'X-AREA (Stoe & Cie, 2015)'%									 //constant term, but also useful for IF or CASE instructions
+//----------------------------------------------------------------------------------------------------------------------
+_audit_creation_method            %READ%															     //Simply reads the CIF item and its value from file(!), useful for %IF or %CASE instructions
+// CASE is similar to IF without "else"; useful for more than 2 options.
+// In CASE the second CIF item is "..." then the first CIF item is "..." 
+// Important! The second CIF item must be defined somewhere or READ from the CIF before the CASE instruction. 
+_computing_structure_solution     %CASE %_audit_creation_method %'SHELXL-2016/6' %'SHELXT-2014 (Sheldrick, 2014)'%  
+_computing_structure_solution     %CASE %_audit_creation_method %'SHELXL-2014/7' %'SHELXT-2014 (Sheldrick, 2014)'%
+_computing_structure_solution     %CASE %_audit_creation_method %SHELXL-97 %'SHELXS-97 (Sheldrick, 1990)'%
+//----------------------------------------------------------------------------------------------------------------------
+_computing_publication_material   %CASE %_audit_creation_method %'SHELXL-2016/6' %'SHELXL-2016 (Sheldrick, 2016)'% 
+_computing_publication_material   %CASE %_audit_creation_method %'SHELXL-2014/7' %'SHELXL-2014 (Sheldrick, 2014)'%
+_computing_publication_material   %CASE %_audit_creation_method %SHELXL-97 %'SHELXL-97 (Sheldrick, 1990)'%
+**end section CIF
+//======================================================================================================================
+**begin section TABLE
+// Table structure for RTF, LaTeX, plain text (unicode(ascii) or markdown)
+// %B = bold, %I = italics, %G = greek, ^{} = superscript, _{} = subscript
+// ANGS = unit Angstrom, DEG = unit degree
+// %SPC = space (not always necessary, but must be used after a _cif_item) 
+// %BLANK = new line, %TAB = tab stop or next column
+// %FORMULA_SUM = special for _chemical_formula_sum, %FORMULA_MOIETY = special for _chemical_formula_moiety 
+// %SPACE_GROUP = special for _space_group_name_H-M_alt or _symmetry_space_group_name_H-M 
+// %HKLRNG = special for hkl range
+// data_ = name of the structure from data section
+// %CAPTION = Table Caption
+// %FIGURECAPTION = Figure Caption
+// %BONDLENGTHS_2_COLUMN = 2 column bond length table
+// %BONDLENGTHS_4_COLUMN = 4 column bond length table
+// %BONDLENGTHS_2_COLUMN_SORTED = sorted 2 column bond length table (small to large values)
+// %BONDLENGTHS_4_COLUMN_SORTED = sorted 4 column bond length table (small to large values)
+// %BONDANGLES_2_COLUMN = 2 column bond angle table
+// %BONDANGLES_4_COLUMN = 4 column bond angle table
+// %BONDANGLES_2_COLUMN_SORTED = sorted 2 column bond angle table (small to large values)
+// %BONDANGLES_4_COLUMN_SORTED = sorted 4 column bond angle table (small to large values)
+// %BONDLENGTHS_AND_ANGLES_FIGURE = bond lengths and angles in figure caption
+// %BONDLENGTHS_AND_ANGLES_FIGURE_SORTED = sorted bond lengths and angles in figure caption
+// %SYM_OPS = Create a sentence regarding the symmetry transformations used to generate equivalent atoms.
+// %SYM_OPS_SORTED = Create a sentence regarding the symmetry transformations used to generate equivalent atoms for sorted tables.
+// Important! Always use SYM_OPS_SORTED with XXX_X_COLUMN_SORTED and SYM_OPS with XXX_X_COLUMN otherwise the symmetry transformations don't match!
+// %TEX... = LaTeX commands, must start with "\"
+// %TEX_IGNORE = Lines will be ignored in the LaTeX output
+// %ASCII\END_TBL = Marks the end of the first table for plain text output
+// 
+// Notes for markdown:
+// For compatibility with several markdown flavors a pseudo-header []() | []() is generated for the first header-less table.
+// Subscript and superscript works at least with pandoc and dillinger.io.
+// The markdown plain text contains unicode characters (greek symbols). 
+//
+// LaTeX is much more powerful in formatting text than the RTF or plain text. For this reason the %TEX, %TEX_IGNORE and %ASCII instructions have been added.
+// In principle you can create differently styled documents for RTF and LaTeX (and plain text as well) by using those instructions. 
+// For example:
+// %TEX_IGNORE %CAPTION %B{Table 1.} Crystal data and refinement details for %SPC %B{data_}.% 
+// %TEX\caption{Crystal data and refinement details for \textbf{data_}.}%
+// but:
+// %CAPTION %B{Table 1.} Crystal data and refinement details for %SPC %B{data_}.% works also for all, RTF, LaTeX and plain text.
+// As well as all other commands listed above.
+//
+// Don't forget the closing '%' at the end of each instruction line! 
+// The CIF should not contain (by chance or on purpose) one of the above instructions. For example in the data_xxx item.
+//
+// Since this would otherwise be quite complicated (to understand) and probably misleading a list of all symmetry operations used for bond lengths AND angles 
+// will be printed below each table.
+// The sequence and naming in symmetry transformations in SORTED and not sorted tables and figure captions might be different, 
+// since the first symmetry transformation that is applied is always ', the second '', the third ''' and so on.
+//
+//=================Begin LaTeX preamble=================================================================================
+%TEX\documentclass[a4paper]{scrartcl}%
+%TEX\usepackage[nooneline,singlelinecheck=off,justification=centering]{caption}%
+%TEX\usepackage{geometry}%
+%TEX\geometry{a4paper,left=30mm,right=30mm, top=2cm, bottom=2cm}%
+%TEX\usepackage{longtable}%
+%TEX\usepackage{dcolumn}%
+%TEX\renewcommand{\arraystretch}{1.3}%
+%TEX\begin{document}%
+//=================End LaTeX preamble===================================================================================
+%TEX_IGNORE %CAPTION %B{Table 1.} Crystal data and refinement details for %SPC %B{data_}.% 
+%TEX\begin{longtable}{ll}%
+%TEX\caption{Crystal data and refinement details for %SPC %B{data_}.}\\%
+%TEX\hline%
+%empirical formula %TAB %FORMULA_SUM%
+%moiety formula %TAB %FORMULA_MOIETY%
+%formula weight %TAB %_chemical_formula_weight%
+%I{T} [K] %TAB %_diffrn_ambient_temperature% 
+%crystal size [mm^{3}] %TAB %_exptl_crystal_size_max %SPC %x %SPC %_exptl_crystal_size_mid %SPC %x %SPC %_exptl_crystal_size_min%
+%crystal system %TAB %_space_group_crystal_system%
+%crystal color %TAB %_exptl_crystal_colour%
+%space group %TAB %SPACE_GROUP %SPC %(No. %SPC %_space_group_IT_number %)%
+%I{a} [ANGS] %TAB %_cell_length_a%
+%I{b} [ANGS] %TAB %_cell_length_b%
+%I{c} [ANGS] %TAB %_cell_length_c%
+%G{a} [DEG] %TAB %_cell_angle_alpha%
+%G{b} [DEG] %TAB %_cell_angle_beta%
+%G{g} [DEG] %TAB %_cell_angle_gamma%
+%I{V} [ANGS^{3}] %TAB %_cell_volume%
+%I{Z}  %TAB %_cell_formula_units_Z%
+%G{r} [gDOTcm^{-3}] %TAB %_exptl_crystal_density_diffrn%
+%I{F}(000) %TAB %_exptl_crystal_F_000%
+%G{m} [mm^{-1}] %TAB %_exptl_absorpt_coefficient_mu%
+%I{T}_{min} / %SPC %I{T}_{max} %TAB %_exptl_absorpt_correction_T_min %SPC %/ %SPC %_exptl_absorpt_correction_T_max%
+%G{q}-range %TAB %_cell_measurement_theta_min %SPC %- %SPC %_cell_measurement_theta_max%
+%I{hkl}-range %TAB %HKLRNG%
+%measured refl. %TAB %_diffrn_reflns_number%
+%unique refl. [%I{R}_{int}] %TAB %_reflns_number_total% %SPC %[ %_diffrn_reflns_av_R_equivalents %]%
+%observed refl. (%I{I} > 2%G{s}(%I{I})) %TAB %_reflns_number_gt%
+%data / restraints / param. %TAB %_reflns_number_total %SPC %/ %SPC %_refine_ls_number_restraints %SPC %/ %SPC %_refine_ls_number_parameters%
+%goodness-of-fit (%I{F}^{2}) %TAB %_refine_ls_goodness_of_fit_ref%
+%I{R}1, %SPC %I{wR}2 (%I{I} > 2%G{s}(%I{I})) %TAB %_refine_ls_R_factor_gt %, %SPC %_refine_ls_wR_factor_gt%
+%I{R}1, %SPC %I{wR}2 (all data) %TAB %_refine_ls_R_factor_all %, %SPC %_refine_ls_wR_factor_ref%
+%resid. el. dens. %SPC %[eDOTANGS^{-3}] %TAB %_refine_diff_density_min %SPC %/ %SPC %_refine_diff_density_max%
+%TEX\hline%
+%TEX\end{longtable}%
+%ASCII\END_TBL%
+//=================2 column bond lengths================================================================================
+%TEX_IGNORE %BLANK%
+%TEX_IGNORE %CAPTION %B{Table 2-2.} Selected bond lengths [ANGS] for %SPC %B{data_}.%
+%TEX\begin{longtable}{|lD{.}{.}{1.4}|}%
+%TEX\caption{Selected bond lengths [ANGS] for %SPC %B{data_}.}\\%
+%TEX\hline%
+%TEX\textbf{Atoms} & \multicolumn{1}{c|}{\textbf{Bond lengths}} \\%
+%TEX\hline%
+%TEX_IGNORE %B{Atoms} %TAB %B{Bond lengths}%
+%BONDLENGTHS_2_COLUMN%
+%TEX_IGNORE %SYM_OPS%
+%TEX\hline%
+%TEX\captionsetup{justification=justified}%
+%TEX\caption*{SYM_OPS}%
+%TEX\end{longtable}%
+//=================2 column bond angles=================================================================================
+%TEX_IGNORE %BLANK%
+%TEX_IGNORE %CAPTION  %B{Table 3-2.} Selected bond angles [DEG] for %SPC %B{data_}.%
+%TEX\begin{longtable}{|lD{.}{.}{1.1}|}%
+%TEX\caption{Selected bond angles [DEG] for %SPC %B{data_}.}\\%
+%TEX\hline%
+%TEX\textbf{Atoms} & \multicolumn{1}{c|}{\textbf{Bond angles}} \\%
+%TEX\hline%
+%TEX_IGNORE %B{Atoms} %TAB %B{Bond angle}%
+%BONDANGLES_2_COLUMN%
+%TEX_IGNORE %SYM_OPS%
+%TEX\hline%
+%TEX\captionsetup{justification=justified}%
+%TEX\caption*{SYM_OPS}%
+%TEX\end{longtable}%
+//=================4 column bond lengths================================================================================
+%TEX_IGNORE %BLANK%
+%TEX_IGNORE %CAPTION %B{Table 4-4.} Selected bond lengths [ANGS] for %SPC %B{data_}.%
+%TEX\begin{longtable}{|lD{.}{.}{1.4}|lD{.}{.}{1.4}|}%
+%TEX\caption{Selected bond lengths [ANGS] for %SPC %B{data_}.}\\%
+%TEX\hline%
+%TEX\textbf{Atoms} & \multicolumn{1}{c|}{\textbf{Bond lengths}} & \textbf{Atoms} & \multicolumn{1}{c|}{\textbf{Bond lengths}} \\%
+%TEX\hline%
+%TEX_IGNORE %B{Atoms} %TAB %B{Bond lengths} %TAB %B{Atoms} %TAB %B{Bond lengths}%
+%BONDLENGTHS_4_COLUMN%
+%TEX_IGNORE %SYM_OPS%
+%TEX\hline%
+%TEX\captionsetup{justification=justified}%
+%TEX\caption*{SYM_OPS}%
+%TEX\end{longtable}%
+//=================4 column bond angles=================================================================================
+%TEX_IGNORE %BLANK%
+%TEX_IGNORE %CAPTION  %B{Table 5-4.} Selected bond angles [DEG] for %SPC %B{data_}.%
+%TEX\begin{longtable}{|lD{.}{.}{1.1}|lD{.}{.}{1.1}|}%
+%TEX\caption{Selected bond angles [DEG] for %SPC %B{data_}.}\\%
+%TEX\hline%
+%TEX\textbf{Atoms} & \multicolumn{1}{c|}{\textbf{Bond angles}} & \textbf{Atoms} & \multicolumn{1}{c|}{\textbf{Bond angles}} \\%
+%TEX\hline%
+%TEX_IGNORE %B{Atoms} %TAB %B{Bond angle} %TAB %B{Atoms} %TAB %B{Bond angle}%
+%BONDANGLES_4_COLUMN%
+%TEX_IGNORE %SYM_OPS%
+%TEX\hline%
+%TEX\captionsetup{justification=justified}%
+%TEX\caption*{SYM_OPS}%
+%TEX\end{longtable}%
+//=================2 column bond lengths (sorted)=======================================================================
+%TEX_IGNORE %BLANK%
+%TEX_IGNORE %CAPTION  %B{Table 6-2.} Selected bond lengths [ANGS] for %SPC %B{data_} (sorted).%
+%TEX\begin{longtable}{|lD{.}{.}{1.4}|}%
+%TEX\caption{Selected bond lengths [ANGS] for %SPC %B{data_} (sorted).}\\%
+%TEX\hline%
+%TEX\textbf{Atoms} & \multicolumn{1}{c|}{\textbf{Bond lengths}} \\%
+%TEX\hline%
+%TEX_IGNORE %B{Atoms} %TAB %B{Bond length}%
+%BONDLENGTHS_2_COLUMN_SORTED%
+%TEX_IGNORE %SYM_OPS_SORTED%
+%TEX\hline%
+%TEX\captionsetup{justification=justified}%
+%TEX\caption*{SYM_OPS_SORTED}%
+%TEX\end{longtable}%
+//=================2 column bond angles (sorted)========================================================================
+%TEX_IGNORE %BLANK%
+%TEX_IGNORE %CAPTION %B{Table 7-2.} Selected bond angles [DEG] for %SPC %B{data_} (sorted).%
+%TEX\begin{longtable}{|lD{.}{.}{1.1}|}%
+%TEX\caption{Selected bond angles [DEG] for %SPC %B{data_} (sorted).}\\%
+%TEX\hline%
+%TEX\textbf{Atoms} & \multicolumn{1}{c|}{\textbf{Bond angles}} \\%
+%TEX\hline%
+%TEX_IGNORE %B{Atoms} %TAB %B{Bond angle}%
+%BONDANGLES_2_COLUMN_SORTED%
+%TEX_IGNORE %SYM_OPS_SORTED%
+%TEX\hline%
+%TEX\captionsetup{justification=justified}%
+%TEX\caption*{SYM_OPS_SORTED}%
+%TEX\end{longtable}%
+//=================4 column bond lengths (sorted)=======================================================================
+%TEX_IGNORE %BLANK%
+%TEX_IGNORE %CAPTION %B{Table 8-4.} Selected bond lengths [ANGS] for %SPC %B{data_} (sorted).%
+%TEX\begin{longtable}{|lD{.}{.}{1.4}|lD{.}{.}{1.4}|}%
+%TEX\caption{Selected bond lengths [ANGS] for %SPC %B{data_} (sorted).}\\%
+%TEX\hline%
+%TEX\textbf{Atoms} & \multicolumn{1}{c|}{\textbf{Bond lengths}} & \textbf{Atoms} & \multicolumn{1}{c|}{\textbf{Bond lengths}} \\%
+%TEX\hline%
+%TEX_IGNORE %B{Atoms} %TAB %B{Bond length} %TAB %B{Atoms} %TAB %B{Bond length}%
+%BONDLENGTHS_4_COLUMN_SORTED%
+%TEX_IGNORE %SYM_OPS_SORTED%
+%TEX\hline%
+%TEX\captionsetup{justification=justified}%
+%TEX\caption*{SYM_OPS_SORTED}%
+%TEX\end{longtable}%
+//=================4 column bond angles (sorted)========================================================================
+%TEX_IGNORE %BLANK%
+%TEX_IGNORE %CAPTION %B{Table 9-4.} Selected bond angles [DEG] for %SPC %B{data_} (sorted).%
+%TEX\begin{longtable}{|lD{.}{.}{1.1}|lD{.}{.}{1.1}|}%
+%TEX\caption{Selected bond angles [DEG] for %SPC %B{data_} (sorted).}\\%
+%TEX\hline%
+%TEX\textbf{Atoms} & \multicolumn{1}{c|}{\textbf{Bond angles}} & \textbf{Atoms} & \multicolumn{1}{c|}{\textbf{Bond angles}} \\%
+%TEX\hline%
+%TEX_IGNORE %B{Atoms} %TAB %B{Bond angle} %TAB %B{Atoms} %TAB %B{Bond angle}%
+%BONDANGLES_4_COLUMN_SORTED%
+%TEX_IGNORE %SYM_OPS_SORTED%
+%TEX\hline%
+%TEX\captionsetup{justification=justified}%
+%TEX\caption*{SYM_OPS_SORTED}%
+%TEX\end{longtable}%
+//=================figure caption=======================================================================================
+%TEX_IGNORE %BLANK%
+%TEX\begin{figure}[ht]%
+%TEX\captionsetup{justification=justified}%
+%FIGURE_CAPTION %B{Figure 1.} Selected bond lengths [ANGS] and angles [DEG] for %SPC %B{data_}:%SPC%
+%BONDLENGTHS_AND_ANGLES_FIGURE%
+%TEX\centering%
+%TEX\end{figure}%
+//=================figure caption (sorted)==============================================================================
+%TEX_IGNORE BLANK%
+%TEX\begin{figure}[ht]%
+%TEX\captionsetup{justification=justified}%
+%FIGURE_CAPTION %B{Figure 2.} Selected bond lengths [ANGS] and angles [DEG] for %SPC %B{data_} (sorted):%SPC%
+%BONDLENGTHS_AND_ANGLES_FIGURE_SORTED%
+%TEX\centering%
+%TEX\end{figure}%
+//======================================================================================================================
+%TEX_IGNORE %BLANK%
+%TEX\end{document}%
+**end section TABLE

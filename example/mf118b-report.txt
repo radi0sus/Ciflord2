@@ -1,0 +1,151 @@
+Table 1. Crystal data and refinement details for mf118b.
+empirical formula             C38 H54 Fe2 N12 S2 
+moiety formula                C22 H14 Fe2 N10 S2 2-, 2(C8 H20 N +)
+formula weight                854.75
+T [K]                         133(2)
+crystal size [mm³]            0.500 x 0.500 x 0.360
+crystal system                monoclinic
+crystal color                 black
+space group                   P21/c (No. 14)
+a [Å]                         11.2144(4)
+b [Å]                         14.4686(4)
+c [Å]                         13.7454(5)
+α [°]                         90
+β [°]                         113.658(3)
+γ [°]                         90
+V [Å³]                        2042.84(13)
+Z                             2
+ρ [g·cm⁻³]                    1.390
+F(000)                        900
+µ [mm⁻¹]                      0.857
+Tmin / Tmax                   0.6373 / 0.7269
+θ-range                       1.983 - 26.942
+hkl-range                     ±14, ±18, ±17
+measured refl.                26072
+unique refl. [Rint]           4445 [0.0317]
+observed refl. (I > 2σ(I))    4191
+data / restraints / param.    4445 / 0 / 248
+goodness-of-fit (F²)          1.037
+R1, wR2 (I > 2σ(I))           0.0227, 0.0599
+R1, wR2 (all data)            0.0247, 0.0608
+resid. el. dens. [e·Å⁻³]      -0.360 / 0.310
+
+Table 2-2. Selected bond lengths [Å] for mf118b.
+Atoms       Bond lengths
+Fe1-N1      2.1142(10)
+Fe1-N4      2.1173(10)
+Fe1-N3      2.1793(10)
+Fe1-S1      2.2138(3)
+Fe1-S1'     2.2379(3)
+Fe1-Fe1'    2.7913(3)
+Symmetry transformation used to generate equivalent atoms: (') 1-x, 1-y, 1-z.
+
+Table 3-2. Selected bond angles [°] for mf118b.
+Atoms           Bond angle
+N1-Fe1-N4       141.30(4)
+N1-Fe1-N3        73.13(4)
+N4-Fe1-N3        72.85(4)
+N1-Fe1-S1       102.70(3)
+N4-Fe1-S1       106.39(3)
+N3-Fe1-S1       111.27(3)
+N1-Fe1-S1'       99.78(3)
+N4-Fe1-S1'       98.35(3)
+N3-Fe1-S1'      146.39(3)
+S1-Fe1-S1'      102.343(12)
+N1-Fe1-Fe1'     108.09(3)
+N4-Fe1-Fe1'     109.89(3)
+N3-Fe1-Fe1'     162.82(3)
+S1-Fe1-Fe1'      51.557(9)
+S1'-Fe1-Fe1'     50.786(9)
+Fe1-S1-Fe1'      77.657(11)
+C3-N1-Fe1       117.83(8)
+C1-N1-Fe1       137.94(9)
+C8-N3-Fe1       119.44(8)
+C4-N3-Fe1       119.24(8)
+C9-N4-Fe1       118.01(8)
+C10-N4-Fe1      138.39(9)
+Symmetry transformation used to generate equivalent atoms: (') 1-x, 1-y, 1-z.
+
+Table 4-4. Selected bond lengths [Å] for mf118b.
+Atoms     Bond lengths    Atoms       Bond lengths
+Fe1-N1    2.1142(10)      Fe1-S1      2.2138(3)
+Fe1-N4    2.1173(10)      Fe1-S1'     2.2379(3)
+Fe1-N3    2.1793(10)      Fe1-Fe1'    2.7913(3)
+Symmetry transformation used to generate equivalent atoms: (') 1-x, 1-y, 1-z.
+
+Table 5-4. Selected bond angles [°] for mf118b.
+Atoms          Bond angle     Atoms           Bond angle
+N1-Fe1-N4      141.30(4)      N4-Fe1-Fe1'     109.89(3)
+N1-Fe1-N3       73.13(4)      N3-Fe1-Fe1'     162.82(3)
+N4-Fe1-N3       72.85(4)      S1-Fe1-Fe1'      51.557(9)
+N1-Fe1-S1      102.70(3)      S1'-Fe1-Fe1'     50.786(9)
+N4-Fe1-S1      106.39(3)      Fe1-S1-Fe1'      77.657(11)
+N3-Fe1-S1      111.27(3)      C3-N1-Fe1       117.83(8)
+N1-Fe1-S1'      99.78(3)      C1-N1-Fe1       137.94(9)
+N4-Fe1-S1'      98.35(3)      C8-N3-Fe1       119.44(8)
+N3-Fe1-S1'     146.39(3)      C4-N3-Fe1       119.24(8)
+S1-Fe1-S1'     102.343(12)    C9-N4-Fe1       118.01(8)
+N1-Fe1-Fe1'    108.09(3)      C10-N4-Fe1      138.39(9)
+Symmetry transformation used to generate equivalent atoms: (') 1-x, 1-y, 1-z.
+
+Table 6-2. Selected bond lengths [Å] for mf118b (sorted).
+Atoms       Bond length
+Fe1-N1      2.1142(10)
+Fe1-N4      2.1173(10)
+Fe1-N3      2.1793(10)
+Fe1-S1      2.2138(3)
+Fe1-S1'     2.2379(3)
+Fe1-Fe1'    2.7913(3)
+Symmetry transformation used to generate equivalent atoms: (') 1-x, 1-y, 1-z.
+
+Table 7-2. Selected bond angles [°] for mf118b (sorted).
+Atoms           Bond angle
+S1'-Fe1-Fe1'     50.786(9)
+S1-Fe1-Fe1'      51.557(9)
+N4-Fe1-N3        72.85(4)
+N1-Fe1-N3        73.13(4)
+Fe1-S1-Fe1'      77.657(11)
+N4-Fe1-S1'       98.35(3)
+N1-Fe1-S1'       99.78(3)
+S1-Fe1-S1'      102.343(12)
+N1-Fe1-S1       102.70(3)
+N4-Fe1-S1       106.39(3)
+N1-Fe1-Fe1'     108.09(3)
+N4-Fe1-Fe1'     109.89(3)
+N3-Fe1-S1       111.27(3)
+C3-N1-Fe1       117.83(8)
+C9-N4-Fe1       118.01(8)
+C4-N3-Fe1       119.24(8)
+C8-N3-Fe1       119.44(8)
+C1-N1-Fe1       137.94(9)
+C10-N4-Fe1      138.39(9)
+N1-Fe1-N4       141.30(4)
+N3-Fe1-S1'      146.39(3)
+N3-Fe1-Fe1'     162.82(3)
+Symmetry transformation used to generate equivalent atoms: (') 1-x, 1-y, 1-z.
+
+Table 8-4. Selected bond lengths [Å] for mf118b (sorted).
+Atoms     Bond length    Atoms       Bond length
+Fe1-N1    2.1142(10)     Fe1-S1      2.2138(3)
+Fe1-N4    2.1173(10)     Fe1-S1'     2.2379(3)
+Fe1-N3    2.1793(10)     Fe1-Fe1'    2.7913(3)
+Symmetry transformation used to generate equivalent atoms: (') 1-x, 1-y, 1-z.
+
+Table 9-4. Selected bond angles [°] for mf118b (sorted).
+Atoms           Bond angle     Atoms          Bond angle
+S1'-Fe1-Fe1'     50.786(9)     N4-Fe1-Fe1'    109.89(3)
+S1-Fe1-Fe1'      51.557(9)     N3-Fe1-S1      111.27(3)
+N4-Fe1-N3        72.85(4)      C3-N1-Fe1      117.83(8)
+N1-Fe1-N3        73.13(4)      C9-N4-Fe1      118.01(8)
+Fe1-S1-Fe1'      77.657(11)    C4-N3-Fe1      119.24(8)
+N4-Fe1-S1'       98.35(3)      C8-N3-Fe1      119.44(8)
+N1-Fe1-S1'       99.78(3)      C1-N1-Fe1      137.94(9)
+S1-Fe1-S1'      102.343(12)    C10-N4-Fe1     138.39(9)
+N1-Fe1-S1       102.70(3)      N1-Fe1-N4      141.30(4)
+N4-Fe1-S1       106.39(3)      N3-Fe1-S1'     146.39(3)
+N1-Fe1-Fe1'     108.09(3)      N3-Fe1-Fe1'    162.82(3)
+Symmetry transformation used to generate equivalent atoms: (') 1-x, 1-y, 1-z.
+
+Figure 1. Selected bond lengths [Å] and angles [°] for mf118b: Fe1-N1 2.1142(10), Fe1-N4 2.1173(10), Fe1-N3 2.1793(10), Fe1-S1 2.2138(3), Fe1-S1' 2.2379(3), Fe1-Fe1' 2.7913(3); N1-Fe1-N4 141.30(4), N1-Fe1-N3 73.13(4), N4-Fe1-N3 72.85(4), N1-Fe1-S1 102.70(3), N4-Fe1-S1 106.39(3), N3-Fe1-S1 111.27(3), N1-Fe1-S1' 99.78(3), N4-Fe1-S1' 98.35(3), N3-Fe1-S1' 146.39(3), S1-Fe1-S1' 102.343(12), N1-Fe1-Fe1' 108.09(3), N4-Fe1-Fe1' 109.89(3), N3-Fe1-Fe1' 162.82(3), S1-Fe1-Fe1' 51.557(9), S1'-Fe1-Fe1' 50.786(9), Fe1-S1-Fe1' 77.657(11), C3-N1-Fe1 117.83(8), C1-N1-Fe1 137.94(9), C8-N3-Fe1 119.44(8), C4-N3-Fe1 119.24(8), C9-N4-Fe1 118.01(8), C10-N4-Fe1 138.39(9). Symmetry transformation used to generate equivalent atoms: (') 1-x, 1-y, 1-z. 
+
+Figure 2. Selected bond lengths [Å] and angles [°] for mf118b (sorted): Fe1-N1 2.1142(10), Fe1-N4 2.1173(10), Fe1-N3 2.1793(10), Fe1-S1 2.2138(3), Fe1-S1' 2.2379(3), Fe1-Fe1' 2.7913(3); N1-Fe1-N4 141.30(4), N1-Fe1-N3 73.13(4), N4-Fe1-N3 72.85(4), N1-Fe1-S1 102.70(3), N4-Fe1-S1 106.39(3), N3-Fe1-S1 111.27(3), N1-Fe1-S1' 99.78(3), N4-Fe1-S1' 98.35(3), N3-Fe1-S1' 146.39(3), S1-Fe1-S1' 102.343(12), N1-Fe1-Fe1' 108.09(3), N4-Fe1-Fe1' 109.89(3), N3-Fe1-Fe1' 162.82(3), S1-Fe1-Fe1' 51.557(9), S1'-Fe1-Fe1' 50.786(9), Fe1-S1-Fe1' 77.657(11), C3-N1-Fe1 117.83(8), C1-N1-Fe1 137.94(9), C8-N3-Fe1 119.44(8), C4-N3-Fe1 119.24(8), C9-N4-Fe1 118.01(8), C10-N4-Fe1 138.39(9). Symmetry transformation used to generate equivalent atoms: (') 1-x, 1-y, 1-z.
