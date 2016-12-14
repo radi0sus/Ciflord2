@@ -9,4 +9,4 @@ The program uses the "Value Interface" from Nicolas Goeddel for some calculation
   * In the `Compiler Options` from the `Compiler` menu select `Console` as `Executable Format`.
   * Select `Create Executable...` from the `Compiler` menu. 
   
-Testet with Windows 10 (x64) and Linux (x64).
+Testet with Windows 10 (x64) and Linux (x64) and PureBasic 5.50.
