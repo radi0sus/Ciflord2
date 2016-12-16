@@ -569,10 +569,10 @@ Bond angle table with 4 columns **|Atoms|Bond angles||Atoms|Bond angles|**.
 Bond angles table with 4 columns **|Atoms|Bond angles||Atoms|Bond angles|** with sorted values.
 
 ##### `%SYM_OPS%` (for all output format except LaTex) `SYM_OPS` (for LaTeX)
-Lists all symmetry transformation for symmetry generated atoms in tables. Intendend for use with the `XXX_X_COLUMN` tables.
+Lists all symmetry transformation for symmetry generated atoms in tables. Intended for use with the `XXX_X_COLUMN` tables.
 
 ##### `%SYM_OPS_SORTED%` (for all output format except LaTex) `SYM_OPS_SORTED` (for LaTeX)
-Lists all symmetry transformation for symmetry generated atoms in tables with sorted values. Intendend for use with the `XXX_X_COLUMN_SORTED` tables.
+Lists all symmetry transformation for symmetry generated atoms in tables with sorted values. Intended for use with the `XXX_X_COLUMN_SORTED` tables.
 
 #### Instructions for figure captions
 
@@ -588,7 +588,7 @@ Figure caption with bond lengths and angles with sorted values. Symmetry transfo
 Marks the end of the first table for the plain text output. Otherwise of no use.
 
 ##### `%BLANK%`
-Generates an empty line or line break. Not intendend for use with LaTeX output.
+Generates an empty line or line break. Not intended for use with LaTeX output.
 
 ##### `%CAPTION`
 Table caption.
