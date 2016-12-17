@@ -138,7 +138,7 @@ _computing_publication_material   %CASE %_audit_creation_method %SHELXL-97 %'SHE
 %I{F}(000) %TAB %_exptl_crystal_F_000%
 %G{m} [mm^{-1}] %TAB %_exptl_absorpt_coefficient_mu%
 %I{T}_{min} / %SPC %I{T}_{max} %TAB %_exptl_absorpt_correction_T_min %SPC %/ %SPC %_exptl_absorpt_correction_T_max%
-%G{q}-range %TAB %_cell_measurement_theta_min %SPC %- %SPC %_cell_measurement_theta_max%
+%G{q}-range [DEG] %TAB %_cell_measurement_theta_min %SPC %- %SPC %_cell_measurement_theta_max%
 %I{hkl}-range %TAB %HKLRNG%
 %measured refl. %TAB %_diffrn_reflns_number%
 %unique refl. [%I{R}_{int}] %TAB %_reflns_number_total% %SPC %[ %_diffrn_reflns_av_R_equivalents %]%
